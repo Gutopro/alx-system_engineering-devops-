@@ -1,0 +1,43 @@
+https://imgur.com/gallery/l9u0qPs
+Answer :
+Design of Three Server Web Infrastructure for www.foobar.com:
+
+Two Servers:
+
+Server 1: Web Server (Nginx) and Load Balancer (HAproxy)
+Server 2: Application Server and Database (MySQL)
+Web Server (Nginx):
+
+It will serve as a reverse proxy to redirect incoming requests to the application server.
+Nginx is lightweight, scalable, and has good performance.
+Application Server:
+
+It will host the application codebase and process the dynamic content of the website.
+The application server will handle requests from Nginx and respond with the appropriate data.
+Load Balancer (HAproxy):
+
+It will distribute incoming requests across multiple application servers using a Round-Robin algorithm.
+Round-Robin distributes requests evenly across servers in a circular fashion.
+Active-Active setup is being used in which multiple application servers can process requests simultaneously.
+Database (MySQL):
+
+The database will store website data such as user information, product details, etc.
+A Primary-Replica (Master-Slave) cluster is being used for high availability and data redundancy.
+The Primary node is the primary database server that accepts all write operations and replicates the data to the Replica nodes.
+The Replica nodes are read-only servers that replicate data from the Primary node and are used for read operations.
+The Replica nodes can take over as the Primary node in case of failure.
+Issues with this Infrastructure:
+
+Single Point of Failure (SPOF):
+
+There is a single load balancer, which can become a SPOF. If it fails, all incoming requests will be lost.
+To mitigate this, we can add a secondary load balancer to create a High Availability setup.
+Security Issues:
+
+There is no firewall to protect the servers from external attacks.
+HTTPS is not enabled, which can make the website vulnerable to man-in-the-middle attacks.
+To mitigate these issues, we can add a firewall and enable HTTPS using SSL/TLS certificates.
+Monitoring:
+
+There is no monitoring system to track server performance and detect failures.
+We can use tools such as Nagios or Zabbix to monitor server performance and alert us in case of failures.
