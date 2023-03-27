@@ -1,0 +1,22 @@
+https://imgur.com/gallery/l9u0qPs
+Explanation of the Infrastructure:
+
+Three Servers: We are using three servers (Web-1, Web-2, and Web-3) to host the website. This will provide redundancy and high availability.
+
+Firewalls: Three firewalls (FW-1, FW-2, and FW-3) are used to secure the infrastructure. Firewalls help in preventing unauthorized access to the servers by filtering incoming and outgoing network traffic.
+
+SSL Certificate: We will use an SSL certificate to serve www.foobar.com over HTTPS. This will ensure that the traffic between the client and the server is encrypted and secure.
+
+Monitoring Clients: Three monitoring clients (MC-1, MC-2, and MC-3) are used to monitor the infrastructure. Monitoring helps in identifying and resolving issues before they become critical.
+
+Data Collection: We will use Sumologic or other monitoring services to collect data from the servers. Sumologic is a cloud-based log management and analytics service that can collect and analyze logs from different sources.
+
+Monitoring QPS: To monitor the web server QPS, we can use Sumologic or other monitoring tools to collect and analyze the request logs. This will help in identifying the peak traffic periods and optimizing the server resources accordingly.
+
+Issues with the Infrastructure:
+
+Terminating SSL at the Load Balancer Level: Terminating SSL at the load balancer level can be an issue as it can expose the unencrypted traffic to the load balancer. This can pose a security risk as the traffic can be intercepted and manipulated before it reaches the servers.
+
+Single MySQL Server Capable of Accepting Writes: Having only one MySQL server capable of accepting writes can be an issue as it can become a single point of failure. If the server goes down, it can result in data loss and downtime for the website.
+
+Servers with All the Same Components: Having servers with all the same components (database, web server, and application server) might be a problem as it can limit the scalability and flexibility of the infrastructure. If the website experiences a surge in traffic, it may not be possible to scale up the infrastructure as each server has the same components.

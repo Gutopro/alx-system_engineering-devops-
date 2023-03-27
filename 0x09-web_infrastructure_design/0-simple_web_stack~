@@ -1,0 +1,20 @@
+Answer:
+Sure, let me explain how I would design a one server web infrastructure that hosts the website that is reachable via www.foobar.com.
+
+Let's start with a user wanting to access your website. The user types in the URL www.foobar.com in their web browser and hits enter. The domain name www.foobar.com is registered and configured with a DNS (Domain Name System) provider that points to the IP address 8.8.8.8, which is the IP address of our server.
+
+Now, the user's web browser sends a request to the server at the IP address 8.8.8.8. The server is a computer that is always on and connected to the internet. It runs an operating system like Linux or Windows, and it has all the necessary software installed to serve web pages.
+
+To serve web pages, we need a web server. In this case, we'll use Nginx. Nginx is a popular web server that can handle a lot of incoming requests. The web server listens for incoming requests on port 80 (HTTP) or port 443 (HTTPS).
+
+When the user's request reaches the server, Nginx receives the request and passes it on to the application server. The application server is where our code base lives. It's responsible for running the web application that generates the content of our website. In this case, we'll use a programming language like PHP or Python and a framework like Laravel or Django to build our web application.
+
+To store data, we'll use a database. In this case, we'll use MySQL. The database server runs on the same machine as the application server and stores all the data that the application needs to run.
+
+Now, let's talk about the issues with this infrastructure. The main issue is that it has a single point of failure (SPOF). If the server goes down, the entire website goes down. To avoid this, we could set up a second server as a backup and use a load balancer to distribute incoming requests between the two servers.
+
+Another issue is downtime when maintenance is needed. For example, if we need to deploy new code, we need to restart the web server. This means the website will be down for a short period of time. To avoid this, we could set up a staging environment where we can test our changes before deploying them to the live site.
+
+Finally, this infrastructure cannot scale if there is too much incoming traffic. If we start getting a lot of traffic, the server might not be able to handle it all. To scale, we could add more servers and use a load balancer to distribute the traffic between them.
+
+That's a high-level overview of how I would design a one server web infrastructure that hosts the website that is reachable via www.foobar.com.
